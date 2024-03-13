@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirect or Display Content</title>
+</head>
+<body>
+
+<script>
+// 定义允许的 User-Agent 列表
+const allowedUA = ['okhttp/3.15', 'okhttp/3.12.11'];
+
+// 设置随机跳转的地址列表
+const urls = [
+    'http://tv.nxog.top/',
+    'http://xn--sss604efuw.top/tv',
+    'https://cainisi.cf/',
+    'https://xn--z7x900a.live/',
+    'https://www.100km.top/'
+];
+
+// 获取当前 User-Agent
+const currentUserAgent = navigator.userAgent;
+
+// 检查是否在允许的 User-Agent 列表中
+if (allowedUA.includes(currentUserAgent)) {
+    // 使用fetch获取接口内容并显示
+    fetch('interface.json')
+        .then(response => response.text())
+        .then(data => {
+            document.body.innerHTML = data;
+        })
+        .catch(error => console.error(error));
+} else {
+    // 执行随机跳转
+    const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+    window.location.href = randomUrl;
+}
+</script>
+
+</body>
+</html>
