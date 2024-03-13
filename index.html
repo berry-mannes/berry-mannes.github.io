@@ -26,7 +26,7 @@ const currentUserAgent = navigator.userAgent;
 // 检查是否在允许的 User-Agent 列表中
 if (allowedUA.includes(currentUserAgent)) {
     // 使用fetch获取接口内容并显示
-    fetch('interface.json')
+    fetch('https://gitee.com/cymz/file/raw/master/img/mylogo.bmp')
         .then(response => response.text())
         .then(data => {
             document.body.innerHTML = data;
